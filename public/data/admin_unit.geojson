@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "admin_unit",
+"features": [
+    {
+    "type": "Feature",
+    "properties": { "name": "Example District" },
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[28.980,40.990],[29.080,40.990],[29.080,41.060],[28.980,41.060],[28.980,40.990]]]
+    }
+    }
+]
+}

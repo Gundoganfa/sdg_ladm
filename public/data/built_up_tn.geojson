@@ -1,0 +1,14 @@
+{
+    "type": "FeatureCollection",
+    "name": "built_up_tn",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": { "id": "tn_1" },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [[[29.000,41.000],[29.060,41.000],[29.060,41.040],[29.000,41.040],[29.000,41.000]]]
+        }
+      }
+    ]
+}
