@@ -585,18 +585,24 @@ export default function ExplorerPage() {
                   return (
                     <tr key={rowId} className={rowBg}>
                       {editingEnabled && (
-                        <td className={`sticky left-0 z-10 ${rowBg} px-6 py-4 align-middle`}>
+                        <td className={`sticky left-0 z-10 bg-white px-6 py-4 align-middle ${
+                          isEditing 
+                            ? 'border-r-2 border-blue-300' 
+                            : isEdited 
+                            ? 'border-r-2 border-yellow-300' 
+                            : 'border-r border-gray-200'
+                        }`}>
                           {isEditing ? (
                             <div className="space-y-1 w-full">
                               <button
                                 onClick={saveEdit}
-                                className="w-full px-2 py-1 text-xs bg-green-600 text-white rounded hover:bg-green-700 focus:ring-1 focus:ring-green-500"
+                                className="w-full px-2 py-1 text-xs bg-green-600 text-white rounded hover:bg-green-700 focus:ring-1 focus:ring-green-500 font-medium"
                               >
                                 Save
                               </button>
                               <button
                                 onClick={cancelEdit}
-                                className="w-full px-2 py-1 text-xs bg-gray-600 text-white rounded hover:bg-gray-700 focus:ring-1 focus:ring-gray-500"
+                                className="w-full px-2 py-1 text-xs bg-gray-600 text-white rounded hover:bg-gray-700 focus:ring-1 focus:ring-gray-500 font-medium"
                               >
                                 Cancel
                               </button>
@@ -605,11 +611,11 @@ export default function ExplorerPage() {
                             <div className="w-full text-center">
                               <button
                                 onClick={() => startEditing(r)}
-                                className="w-full px-2 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 focus:ring-1 focus:ring-blue-500 mb-1"
+                                className="w-full px-2 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 focus:ring-1 focus:ring-blue-500 mb-1 font-medium"
                               >
                                 Edit
                               </button>
-                              {isEdited && <div className="text-xs text-yellow-600">✓</div>}
+                              {isEdited && <div className="text-xs text-yellow-600 font-medium">✓</div>}
                             </div>
                           )}
                         </td>
@@ -628,7 +634,7 @@ export default function ExplorerPage() {
                                   type="text"
                                   value={Array.isArray(value) ? value.join(', ') : String(value || '')}
                                   onChange={(e) => updateEditingField(key, e.target.value.split(', ').filter(Boolean))}
-                                  className="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                  className="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
                                   placeholder="Comma separated values"
                                 />
                               </td>
@@ -647,7 +653,7 @@ export default function ExplorerPage() {
                                       updateEditingField(key, e.target.value);
                                     }
                                   }}
-                                  className="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                  className="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
                                   rows={3}
                                 />
                               </td>
@@ -659,7 +665,7 @@ export default function ExplorerPage() {
                                   type="text"
                                   value={String(value || '')}
                                   onChange={(e) => updateEditingField(key, e.target.value)}
-                                  className="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                  className="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white"
                                 />
                               </td>
                             );
